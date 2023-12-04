@@ -1,0 +1,320 @@
+/* Variables */
+:root {
+  --border-radius-lg: 40px;
+  --border-radius-md: 20px;
+}
+
+/* Globals */
+
+html,
+body {
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #f8f8f8;
+  font-family: 'Hind', sans-serif;
+}
+
+.montserrat-italic {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 200;
+}
+
+.transition-top-right {
+  transition-property: top, right;
+  transition-duration: 0.3s;
+}
+
+.border-b-transparent {
+  border-top: 1px solid black;
+  border-bottom: 1px solid transparent;
+}
+
+.dark-bg {
+  input {
+    color: #fff;
+  }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #fff !important;
+  }
+}
+
+.inactive-check {
+  background-color: #626262;
+}
+
+.active-check {
+  background-color: #ffffff;
+  position: relative;
+  &::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background-image: url('../public/icons/check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+  }
+}
+
+/* Form Global START */
+form input::-webkit-validation-bubble-message,
+form select::-webkit-validation-bubble-message,
+form textarea::-webkit-validation-bubble-message {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
+input {
+  border-radius: 0;
+  font-size: 16px !important;
+  -webkit-appearance: none;
+}
+
+input:checked + div {
+  @apply border-gray-500;
+}
+input:checked + div svg {
+  @apply block;
+}
+/* Form Global END */
+
+// Gradient
+.gradient-gray {
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(248, 248, 248, 0) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(248, 248, 248, 0) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(248, 248, 248, 0) 100%
+  );
+}
+
+.gradient-gray-inverse {
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(248, 248, 248, 0) 0%,
+    rgba(248, 248, 248, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(248, 248, 248, 0) 0%,
+    rgba(248, 248, 248, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(248, 248, 248, 0) 0%,
+    rgba(248, 248, 248, 1) 100%
+  );
+}
+
+.dashed-separator {
+  border-bottom: 1px dashed black;
+  height: 5px;
+  &:before {
+    content: '';
+    position: relative;
+    display: block;
+    top: 1px;
+    width: 7px;
+    height: 7px;
+    background-color: #000;
+    border-radius: 5px;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 1px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 10px;
+    border-color: transparent transparent transparent #000000;
+  }
+}
+
+.more-button {
+  transition: all 0.3s ease-out 0s;
+  color: #000;
+  @media screen and (min-width: 992px) {
+    &:hover {
+      span {
+        left: 16px;
+      }
+    }
+  }
+  span {
+    position: relative;
+    left: 0;
+    transition: all 0.3s ease-out 0s;
+    margin-left: 16px;
+  }
+}
+
+// SVG
+.svg-container {
+  .handwrite-outline {
+    stroke-dasharray: 900px;
+    stroke-dashoffset: 900px;
+    transition: all 0.8s ease-out 0s;
+  }
+
+  &:hover {
+    .handwrite-outline {
+      stroke-dashoffset: 0px;
+    }
+  }
+}
+
+.mob-menu-container {
+  top: -500px;
+  transition: all 0.5s ease-in-out;
+
+  &.active {
+    top: 0;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.menu-box {
+  background-color: #fff;
+  border-radius: var(--border-radius-lg);
+
+  @media screen and (min-width: 992px) {
+    a {
+      transition: all 0.3s ease-out 0s;
+      &:hover {
+        color: white;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
+        transition: all 0.3s ease-out 0s;
+      }
+    }
+  }
+}
+
+.menu-x-top,
+.menu-x-bottom {
+  transform-origin: 25% 50%;
+  -ms-transform-origin: 25% 50%; /* IE 9 */
+  -webkit-transform-origin: 25% 50%; /* Safari and Chrome */
+  -moz-transform-origin: 25% 50%; /* Firefox */
+  -o-transform-origin: 25% 50%; /* Opera */
+}
+
+.menu-x-top {
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
+  -moz-transform: rotate(45deg); /* Firefox */
+  -o-transform: rotate(45deg); /* Opera */
+}
+
+.menu-x-bottom {
+  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg); /* IE 9 */
+  -webkit-transform: rotate(-45deg); /* Safari and Chrome */
+  -moz-transform: rotate(-45deg); /* Firefox */
+  -o-transform: rotate(-45deg); /* Opera */
+}
+
+// Cases
+.case-card {
+  // Image Ratio
+  .img-container {
+    border-radius: var(--border-radius-lg);
+    width: 100%;
+    padding-top: 55.35%; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+    overflow: hidden;
+  }
+  .case-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+// Footer
+footer {
+  background-image: url('../public/elements/bg-footer.svg');
+  background-size: 150%;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 640px) and (max-width: 992px) {
+    background-position: 0 -100px;
+  }
+  @media screen and (min-width: 640px) {
+    background-size: 70% 100%;
+  }
+}
+
+//Text
+.blurred-text {
+  color: transparent;
+  text-shadow: 0 0 16px #ffffff;
+}
+
+// Swiper
+
+.swiper,
+.swiper-container {
+  padding-bottom: 40px !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 0 !important;
+  text-align: left !important;
+}
+
+.pagination-top.swiper-horizontal
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  padding-bottom: 20px !important;
+}
+
+.pagination-bottom.swiper-horizontal
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  position: relative;
+  bottom: -10px !important;
+}
+
+.pagination-top.swiper-horizontal > .swiper-pagination-bullets {
+  top: 0 !important;
+  height: 30px;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet {
+  width: 24px !important;
+  height: 3px;
+  border-radius: 3px !important;
+  background-color: rgb(130 130 125);
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  padding: 0;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #141414;
+}
