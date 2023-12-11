@@ -1,8 +1,22 @@
 import { useState } from 'react';
 import Arrow from '../public/icons/arrow-faq.svg';
 
-const Faq = ({ index, title, content, active, onClick }) => {
+const DEFAULT_HEIGHT = 54;
+
+const Faq = ({ index, title, isLastItem, content, active, onClick }) => {
   const [isHover, setIsHover] = useState(false);
+  const [height, setHeight] = useState(DEFAULT_HEIGHT);
+
+  const handleElementHeight = (event) => {
+    const element = event.currentTarget.querySelector('.faq-item');
+
+    if (element) {
+      const newHeight = element.offsetHeight;
+      setHeight(newHeight);
+    }
+    onClick();
+  };
+
   return (
     <div
       onMouseEnter={() => {
@@ -11,13 +25,12 @@ const Faq = ({ index, title, content, active, onClick }) => {
       onMouseLeave={() => {
         setIsHover(false);
       }}
-      onClick={onClick}
-      className={` cursor-pointer tracking-wider bg-black ${
-        active ? 'bg-white' : ''
-      }`}
+      onClick={(e) => handleElementHeight(e)}
+      className={`cursor-pointer tracking-wider bg-black relative transition-all ease-in-out duration-500`}
+      //style={{ height: active ? height + 'px' : DEFAULT_HEIGHT + 'px' }}
     >
       <div
-        className={`flex justify-between items-center text-[24px] transition-top-right  relative p-2  ${
+        className={`flex justify-between items-center text-[24px] transition-top-right  relative p-2 ${
           isHover && !active
             ? 'top-[-5px] right-[-5px] border border-black !bg-white'
             : 'top-0 right-0 border-b-transparent'
@@ -30,11 +43,11 @@ const Faq = ({ index, title, content, active, onClick }) => {
           {title}
         </div>
 
-        <div>
+        <div className="shrink-0">
           <img
             src={Arrow.src}
             alt="faq arrow"
-            className={`h-4 transform transition duration-300 ease-in-out ${
+            className={`h-4 transform transition duration-500 ease-in-out ${
               active && 'rotate-90'
             }
 						${isHover && !active && 'rotate-45'}
@@ -42,11 +55,24 @@ const Faq = ({ index, title, content, active, onClick }) => {
           />
         </div>
       </div>
-      {active && (
-        <div className={`text-[20px] leading-8 px-10 py-8 bg-white`}>
+      <div
+        className="overflow-hidden transition-all ease-in-out duration-500 border-b border-black"
+        style={{
+          height: active
+            ? isLastItem
+              ? height - DEFAULT_HEIGHT + 'px'
+              : height + 'px'
+            : isLastItem
+            ? '1px'
+            : 0,
+        }}
+      >
+        <div
+          className={`text-[20px] leading-8 bg-white faq-item overflow-hidden px-10 py-8`}
+        >
           {content}
         </div>
-      )}
+      </div>
     </div>
   );
 };

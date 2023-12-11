@@ -26,7 +26,7 @@ import FaqContent from '../content/FaqContent';
 import TestimonialsContent from '../content/TestimonialsContent';
 
 export default function Home() {
-  const [faqIsActive, setFaqIsActive] = useState(0);
+  const [faqIsActive, setFaqIsActive] = useState(-1);
   const [testimonialOverlay, setTestimonialOverlay] = useState(0);
   const [testimonialLastSlide, setTestimonialLastSlide] = useState(false);
 
@@ -44,6 +44,7 @@ export default function Home() {
         key={index}
         title={item.title}
         index={index + 1}
+        isLastItem={FaqContent.length === index + 1 ? true : false}
         content={item.content}
         active={index === faqIsActive ? true : false}
         onClick={() => toggleFaq(index)}
@@ -152,18 +153,18 @@ export default function Home() {
         {/* cases END */}
       </div>
       {/* Testimonials START */}
-      <section className="gradient-gray px-4 mb-8">
-        <div className="container mx-auto">
+      <section className="gradient-gray mb-">
+        <div className="container mx-auto px-4">
           <HeadlineMd attr={'h3'} title={'customers'} />
         </div>
 
-        <div className=" mx-auto">
+        <div className="container mx-auto">
           <div className="relative">
-            <div
-              className={`absolute top-0 right-0 w-60 h-full z-10 bg-gradient-to-l from-[#f8f8f8]`}
-            ></div>
-            <div
+            {/*<div
               className={`absolute top-0 left-0 w-60 h-full z-10 bg-gradient-to-r from-[#f8f8f8]`}
+            ></div>*/}
+            <div
+              className={`absolute top-0 right-0 w-60 h-full z-10 bg-gradient-to-l from-[#f8f8f8] hidden md:block`}
             ></div>
             {
               <Testimonials
@@ -181,7 +182,7 @@ export default function Home() {
       <section className="gradient-gray px-4">
         <div className="container mx-auto">
           <HeadlineMd attr={'h3'} title={'team'} />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-8">
             {Team.map((el, index) => {
               return <TeamCard item={el} key={index} />;
             })}
@@ -195,7 +196,7 @@ export default function Home() {
         <div className="container mx-auto">
           <HeadlineMd attr={'h3'} title={'faq'} />
           <div className="container mx-auto px-4">
-            <div className="border-b border-black">{FaqItems}</div>
+            <div>{FaqItems}</div>
           </div>
         </div>
       </section>

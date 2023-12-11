@@ -1,6 +1,10 @@
 export default function MobileMenu(props) {
   return (
-    <div className={`${props.openMobile ? "active" : ""} w-full fixed top-0 right-0 p-2 z-50 mob-menu-container`}>
+    <div
+      className={`${
+        props.openMobile ? 'active' : ''
+      } w-full fixed top-0 right-0 p-2 z-50 mob-menu-container`}
+    >
       <div className="container mx-auto flex justify-end">
         <div className="w-full md:w-6/12">
           <div className="menu-box w-full px-8 md:px-10 py-10 md:py-12 shadow-2xl">
@@ -10,8 +14,8 @@ export default function MobileMenu(props) {
                 <div className="w-12 h-[0.187rem] rounded mt-3.5 bg-black menu-x-bottom"></div>
               </button>
             </div>
-            <nav className="text-right text-4xl font-extrabold pt-8">
-              <ul>
+            <nav className="text-right text-4xl font-montserrat pt-8">
+              <ul className="font-headline-bold">
                 <li className="block">
                   <a href="/" className="inline-block py-2 tracking-wider">
                     Home
@@ -28,7 +32,10 @@ export default function MobileMenu(props) {
                   </a>
                 </li>
                 <li className="block">
-                  <a href="/kontakt" className="inline-block py-2 tracking-wider">
+                  <a
+                    href="/kontakt"
+                    className="inline-block py-2 tracking-wider"
+                  >
                     Kontakt
                   </a>
                 </li>

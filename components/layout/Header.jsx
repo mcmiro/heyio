@@ -8,7 +8,7 @@ import HeaderBackground from '../../public/elements/bg.svg';
 
 export default function Header(props) {
   return (
-    <header className="w-full min-h-screen">
+    <header className="w-full min-h-screen relative">
       <div className="container mx-auto relative z-10 px-4">
         <Navigation />
         <div className="md:flex relative z-10 pt-24 md:pt-36">
@@ -46,7 +46,7 @@ export default function Header(props) {
           </div>
         </div>
       </div>
-      <div className="absolute z-0 w-[200vw] lg:w-full h-[150vh] top-0 right-0 header-bg">
+      <div className="absolute z-0 w-[200vw] lg:w-full h-[110vh] md:h-[150vh] top-0 right-0 header-bg">
         <img
           src={HeaderBackground.src}
           alt="Hintergrund - Heyio SEO Agentur"

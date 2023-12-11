@@ -14,10 +14,10 @@ export default function TeamCard(props) {
       </div>
       <div className="p-4 pb-6">
         <div className="text-xl">{props.item.name}</div>
-        <div className="font-extralight pt-4">
+        <div className="font-extralight pt-2 md:pt-4">
           {props.item.stack.map((el, index) => {
             return (
-              <p key={index} className="">
+              <p key={index} className="leading-5 text-gray-500">
                 {el}
               </p>
             );

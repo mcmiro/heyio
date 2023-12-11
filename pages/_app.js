@@ -8,7 +8,7 @@ import '../styles/style.scss';
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Hind:wght@300&family=Montserrat:ital,wght@0,700;1,200&display=swap" />
+      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Hind:wght@300&family=Montserrat:ital,wght@0,800;1,200&display=swap" />
       <Head>
         <title>Heyio</title>
       </Head>

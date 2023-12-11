@@ -18,7 +18,8 @@ export default function Footer() {
         </div>
         <SocialIcons />
         <p className="text-[#847D7D] mt-16 font-light">
-          &copy; 2022 heyio - seo & digital agency - alle rechte vorbehalten
+          &copy; 2022 heyio <br></br> seo & digital agency - alle rechte
+          vorbehalten
         </p>
       </div>
     </footer>

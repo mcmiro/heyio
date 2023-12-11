@@ -23,15 +23,15 @@ const Testimonials = ({ slides, onSlide, onLastSlide }) => {
   };
 
   const BREAKPOINTS = {
-    640: {
-      slidesPerView: 1.4,
-      slidesOffsetBefore: 50,
-      slidesOffsetAfter: 50,
+    320: {
+      slidesPerView: 1.2,
+      slidesOffsetBefore: 16,
+      //slidesOffsetAfter: 50,
     },
     1024: {
       slidesPerView: 2.4,
-      slidesOffsetBefore: 150,
-      slidesOffsetAfter: 150,
+      //slidesOffsetBefore: 150,
+      slidesOffsetAfter: 100,
     },
   };
 
@@ -39,13 +39,15 @@ const Testimonials = ({ slides, onSlide, onLastSlide }) => {
     return (
       <SwiperSlide
         key={index}
-        className="bg-white min-h-[450px] rounded-2xl leading-10 tracking-wide relative"
+        className="bg-white min-h-[350px] md:min-h-[450px] rounded-2xl leading-10 tracking-wide relative"
       >
-        <div className="h-full w-full absolute top-0 left-0 p-12">
+        <div className="h-full w-full absolute top-0 left-0 p-8 md:p-12">
           <div className="flex flex-col justify-between h-full">
             <div>
               <div className="text-xl pb-2">{el.title}</div>
-              <div className="montserrat-italic text-3xl">{el.copy}</div>
+              <div className="montserrat-italic text-2xl md:text-3xl">
+                {el.copy}
+              </div>
             </div>
             <div className="flex justify-between items-end">
               <div>
@@ -62,10 +64,10 @@ const Testimonials = ({ slides, onSlide, onLastSlide }) => {
   return (
     <Swiper
       modules={[Autoplay, Pagination]}
-      spaceBetween={50}
+      spaceBetween={16}
       slidesPerView={2}
       pagination={{ clickable: true }}
-      autoplay={true}
+      autoplay={false}
       loop={true}
       breakpoints={BREAKPOINTS}
       onSlideChange={handleSlideChange}
