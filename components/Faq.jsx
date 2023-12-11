@@ -12,7 +12,7 @@ const Faq = ({ index, title, isLastItem, content, active, onClick }) => {
 
     if (element) {
       const newHeight = element.offsetHeight;
-      setHeight(newHeight);
+      setHeight(newHeight + 1);
     }
     onClick();
   };
@@ -26,8 +26,9 @@ const Faq = ({ index, title, isLastItem, content, active, onClick }) => {
         setIsHover(false);
       }}
       onClick={(e) => handleElementHeight(e)}
-      className={`cursor-pointer tracking-wider bg-black relative transition-all ease-in-out duration-500`}
-      //style={{ height: active ? height + 'px' : DEFAULT_HEIGHT + 'px' }}
+      className={`cursor-pointer tracking-wider bg-black relative transition-all ease-in-out duration-300 ${
+        index === 1 ? 'border-t border-black' : ''
+      }`}
     >
       <div
         className={`flex justify-between items-center text-[24px] transition-top-right  relative p-2 ${
@@ -47,7 +48,7 @@ const Faq = ({ index, title, isLastItem, content, active, onClick }) => {
           <img
             src={Arrow.src}
             alt="faq arrow"
-            className={`h-4 transform transition duration-500 ease-in-out ${
+            className={`h-4 transform transition duration-300 ease-in-out ${
               active && 'rotate-90'
             }
 						${isHover && !active && 'rotate-45'}
@@ -56,11 +57,11 @@ const Faq = ({ index, title, isLastItem, content, active, onClick }) => {
         </div>
       </div>
       <div
-        className="overflow-hidden transition-all ease-in-out duration-500 border-b border-black"
+        className="overflow-hidden transition-all ease-in-out duration-300 border-b border-black"
         style={{
           height: active
             ? isLastItem
-              ? height - DEFAULT_HEIGHT + 'px'
+              ? height + 'px'
               : height + 'px'
             : isLastItem
             ? '1px'
