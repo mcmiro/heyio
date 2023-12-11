@@ -1,5 +1,6 @@
-import MobileMenu from "./MobileMenu";
-import React, { useState } from "react";
+import MobileMenu from './MobileMenu';
+import React, { useState } from 'react';
+import Logo from '../../public/logo/heyio-logo-white.svg';
 
 export default function NavigationDark() {
   // State
@@ -16,8 +17,11 @@ export default function NavigationDark() {
   return (
     <nav className="w-full flex justify-between items-center py-4 container mx-auto">
       {/* logo START */}
-      <a href="/" className="text-5xl font-extrabold flex justify-start text-white">
-        hey<span className="text-3xl">io</span>
+      <a
+        href="/"
+        className="text-5xl font-extrabold flex justify-start w-[142px]"
+      >
+        <img src={Logo.src} className="w-full h-full" />
         {/* heyio */}
       </a>
       {/* logo END */}
